@@ -1,5 +1,5 @@
-import MoviesService from '../services/MovieService';
-import type { TGetMovieDetails } from './../types/api/TMovieService';
+import MoviesService from '../../services/MovieService';
+import type { TGetMovieDetails } from '../../types/api/TMovieService';
 import { useQuery } from '@tanstack/react-query';
 
 export const useMovieDetails = (id: number) => {

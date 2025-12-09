@@ -1,9 +1,9 @@
 import { Navigation } from 'swiper/modules';
 import { MovieSlider } from '../../components/ui/MovieSlider/MovieSlider';
-import { usePopularMovies } from '../../hooks/usePopularMovies';
+import { usePopularMovies } from '../../hooks/movies/usePopularMovies';
 import { SwiperSlide } from 'swiper/react';
 import { ItemCard } from '../../components/ui/ItemCard/ItemCard';
-import { usePopularSeries } from '../../hooks/usePopularSeries';
+import { usePopularSeries } from '../../hooks/series/usePopularSeries';
 
 export const HomePage = () => {
   const {

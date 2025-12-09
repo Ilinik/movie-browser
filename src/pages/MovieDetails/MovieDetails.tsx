@@ -1,5 +1,5 @@
 import { useParams } from 'react-router';
-import { useMovieDetails } from '../../hooks/useMovieDetails';
+import { useMovieDetails } from '../../hooks/movies/useMovieDetails';
 
 export const MovieDetails = () => {
   const { id } = useParams();
