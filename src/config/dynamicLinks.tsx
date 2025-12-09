@@ -1,4 +1,4 @@
 export const dynamicLinks = {
-  movieDetails: '/movies/:id',
+  movieDetails: '/movie/:id',
   seriesDetails: '/series/:id',
 };

@@ -1,9 +1,19 @@
+import { useNavigate } from 'react-router';
 import type { TMovie } from '../../../types/entities/TMovie';
 import type { TSeries } from '../../../types/entities/TSeries';
 
 export const ItemCard = ({ movie }: { movie: TMovie | TSeries }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="group flex flex-col items-center gap-3 w-full h-full cursor-pointer">
+    <div
+      className="group flex flex-col items-center gap-3 w-full h-full cursor-pointer"
+      onClick={() =>
+        'title' in movie
+          ? navigate(`/movie/${movie.id}`)
+          : navigate(`/series/${movie.id}`)
+      }
+    >
       <img
         src={`${import.meta.env.VITE_API_IMAGE}/w500${movie.poster_path}`}
         alt={'title' in movie ? movie.title : movie.name}
