@@ -4,6 +4,8 @@ import { Swiper } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
 import type { TSwiper } from '../../../types/entities/TSwiper';
 
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -27,7 +29,7 @@ export const MovieSlider = ({
     sliderRef.current?.slideNext();
   };
   return (
-    <div className={className}>
+    <div className={`relative ${className}`}>
       <Swiper
         {...swiperProps}
         onSwiper={(swiper) => {
@@ -39,21 +41,25 @@ export const MovieSlider = ({
         {children}
       </Swiper>
 
-      <div>
-        <button
-          onClick={handlePrev}
-          className="prev absolute left-0 top-1/2 z-10 bg-black/50 text-white px-3 py-1"
-        >
-          Prev
-        </button>
+      <button
+        onClick={handlePrev}
+        className="prev absolute left-0 top-1/2 -translate-y-1/2 z-10"
+      >
+        <ChevronLeft
+          size={70}
+          className="stroke-gray-300 hover:stroke-white hover:scale-115 active:scale-130 duration-300 transition"
+        />
+      </button>
 
-        <button
-          onClick={handleNext}
-          className="next absolute right-0 top-1/2 z-10 bg-black/50 text-white px-3 py-1"
-        >
-          Next
-        </button>
-      </div>
+      <button
+        onClick={handleNext}
+        className="next absolute right-0 top-1/2 -translate-y-1/2 z-10"
+      >
+        <ChevronRight
+          size={70}
+          className="stroke-gray-300 hover:stroke-white hover:scale-115 active:scale-130 duration-300 transition"
+        />
+      </button>
     </div>
   );
 };
