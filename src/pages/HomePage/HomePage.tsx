@@ -2,34 +2,63 @@ import { Navigation } from 'swiper/modules';
 import { MovieSlider } from '../../components/ui/MovieSlider/MovieSlider';
 import { usePopularMovies } from '../../hooks/usePopularMovies';
 import { SwiperSlide } from 'swiper/react';
-import { MovieCard } from '../../components/ui/MovieCard/MovieCard';
+import { ItemCard } from '../../components/ui/ItemCard/ItemCard';
+import { usePopularSeries } from '../../hooks/usePopularSeries';
 
 export const HomePage = () => {
-  const { data, isLoading, isError } = usePopularMovies();
-  if (isLoading) return <div>Loading</div>;
-  if (isError) return <div>Error</div>;
+  const {
+    data: popularMovies,
+    isLoading: moviesLoading,
+    isError: moviesError,
+  } = usePopularMovies();
+
+  const {
+    data: popularSeries,
+    isLoading: seriesLoading,
+    isError: seriesError,
+  } = usePopularSeries();
+
+  if (moviesLoading || seriesLoading) return <div>Loading</div>;
+  if (moviesError || seriesError) return <div>Error</div>;
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mt-6">
-        Search, Explore, and Dive Into the Best of Cinema
-      </h1>
-      <section className="section flex flex-col gap-12">
+      <div className="mt-6 flex flex-col">
+        <h1 className="text-4xl font-bold">Welcome.</h1>
+        <h2 className="text-2xl font-bold">
+          Explore. Search. Enjoy. Everything you love in one place.
+        </h2>
+      </div>
+      <section className="section flex flex-col gap-10">
         <div className="flex flex-col gap-3">
           <h3 className="font-bold text-xl">Movies - Popular</h3>
           <MovieSlider
             slidesPerView={7}
             spaceBetween={20}
             allowTouchMove={false}
-            navigation={{
-              prevEl: '.prev',
-              nextEl: '.next',
-            }}
             modules={[Navigation]}
+            className="popularMovies"
           >
-            {data.results.map((movie) => (
+            {popularMovies.results.map((movie) => (
               <SwiperSlide key={movie.id}>
-                <MovieCard movie={movie} />
+                <ItemCard movie={movie} />
+              </SwiperSlide>
+            ))}
+          </MovieSlider>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <h3 className="font-bold text-xl">Series - Popular</h3>
+          <MovieSlider
+            slidesPerView={7}
+            spaceBetween={20}
+            allowTouchMove={false}
+            modules={[Navigation]}
+            className="popularSeries"
+          >
+            {popularSeries.results.map((series) => (
+              <SwiperSlide key={series.id}>
+                <ItemCard movie={series} />
               </SwiperSlide>
             ))}
           </MovieSlider>
