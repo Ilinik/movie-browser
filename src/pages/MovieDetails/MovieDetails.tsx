@@ -1,5 +1,7 @@
-import { useParams } from 'react-router';
+import { Outlet, useParams } from 'react-router';
 import { useMovieDetails } from '../../hooks/movies/useMovieDetails';
+import type { TTab } from '../../types/entities/TTab';
+import { Tabs } from '../../components/ui/Tabs/Tabs';
 
 export const MovieDetails = () => {
   const { id } = useParams();
@@ -9,6 +11,12 @@ export const MovieDetails = () => {
     isLoading,
     isError,
   } = useMovieDetails(Number(id));
+
+  const tabs: TTab[] = [
+    { to: '', label: 'General' },
+    { to: 'cast', label: 'Cast' },
+    { to: 'artwork', label: 'Artwork' },
+  ];
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error</div>;
@@ -34,7 +42,7 @@ export const MovieDetails = () => {
             before:w-full before:h-px before:bg-gray-600 before:opacity-30 py-5"
           >
             <p
-              className="px-4 py-2 bg-green-700 rounded-full font-medium self-start 
+              className="px-4 py-2 bg-green-500 rounded-full font-medium self-start 
               transition-all duration-300 hover:scale-105 hover:shadow-lg text-white"
             >
               {movieDetails.status}
@@ -51,6 +59,10 @@ export const MovieDetails = () => {
           </div>
         </div>
       </div>
+
+      <Tabs tabs={tabs} />
+
+      <Outlet />
     </section>
   );
 };
