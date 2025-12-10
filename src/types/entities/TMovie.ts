@@ -59,3 +59,13 @@ export type TActor = {
   credit_id: string;
   order: number;
 };
+
+export type TImage = {
+  aspect_ratio: number;
+  height: number;
+  iso_639_1: boolean;
+  file_path: string | null;
+  vote_average: number;
+  vote_count: number;
+  width: number;
+};

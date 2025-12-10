@@ -2,6 +2,7 @@ import type {
   TActor,
   TCollection,
   TGenre,
+  TImage,
   TLanguage,
   TMovie,
   TProductionCompany,
@@ -47,4 +48,8 @@ export type TGetMovieDetails = {
 export type TGetCredits = {
   id: number;
   cast: TActor[];
+};
+
+export type TGetImages = {
+  backdrops: TImage[];
 };

@@ -3,6 +3,7 @@ export const ENDPOINTS = {
     popular: '/movie/popular',
     getDetailsById: (id: number) => `/movie/${id}`,
     getCredits: (id: number) => `/movie/${id}/credits`,
+    getImages: (id: number) => `/movie/${id}/images`,
   },
 
   tvSeries: {
