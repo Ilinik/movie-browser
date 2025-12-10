@@ -1,4 +1,5 @@
 import type {
+  TActor,
   TCollection,
   TGenre,
   TLanguage,
@@ -41,4 +42,9 @@ export type TGetMovieDetails = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+};
+
+export type TGetCredits = {
+  id: number;
+  cast: TActor[];
 };

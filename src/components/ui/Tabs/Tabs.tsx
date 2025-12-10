@@ -1,14 +1,16 @@
 import clsx from 'clsx';
 import { NavLink } from 'react-router-dom';
 import type { TTab } from '../../../types/entities/TTab';
+import type { PropsWithChildren } from 'react';
 
-type TabsProps = {
+type TabsProps = PropsWithChildren & {
   tabs: TTab[];
+  className?: string;
 };
 
-export const Tabs = ({ tabs }: TabsProps) => {
+export const Tabs = ({ tabs, className }: TabsProps) => {
   return (
-    <div className="flex gap-8 py-6">
+    <div className={clsx('flex gap-8 py-6', className)}>
       {tabs.map((tab) => (
         <NavLink
           key={tab.label}

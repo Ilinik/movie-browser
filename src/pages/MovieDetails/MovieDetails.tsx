@@ -60,7 +60,7 @@ export const MovieDetails = () => {
         </div>
       </div>
 
-      <Tabs tabs={tabs} />
+      <Tabs tabs={tabs} className="justify-center" />
 
       <Outlet />
     </section>

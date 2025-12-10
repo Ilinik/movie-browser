@@ -114,6 +114,8 @@ export const MovieGeneral = () => {
           )
         }
       />
+
+      <InfoRow label="Rating" value={`${generalDetails.vote_average} / 10`} />
     </ul>
   );
 };

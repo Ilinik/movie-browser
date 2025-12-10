@@ -2,6 +2,7 @@ import { axiosClient } from '../api/axiosClient';
 import { ENDPOINTS } from '../api/endpoints';
 import type {
   TFetchPopularMovies,
+  TGetCredits,
   TGetMovieDetails,
 } from '../types/api/TMovieService';
 
@@ -16,6 +17,13 @@ export default class MoviesService {
   static async getMovieDetailsById(id: number): Promise<TGetMovieDetails> {
     const response = await axiosClient.get<TGetMovieDetails>(
       ENDPOINTS.movies.getDetailsById(id),
+    );
+    return response.data;
+  }
+
+  static async getMovieCredits(id: number): Promise<TGetCredits> {
+    const response = await axiosClient.get<TGetCredits>(
+      ENDPOINTS.movies.getCredits(id),
     );
     return response.data;
   }

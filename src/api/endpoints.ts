@@ -1,7 +1,8 @@
 export const ENDPOINTS = {
   movies: {
     popular: '/movie/popular',
-    getDetailsById: (id: number | string) => `/movie/${id}`,
+    getDetailsById: (id: number) => `/movie/${id}`,
+    getCredits: (id: number) => `/movie/${id}/credits`,
   },
 
   tvSeries: {
