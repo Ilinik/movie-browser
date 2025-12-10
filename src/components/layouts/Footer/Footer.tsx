@@ -6,7 +6,7 @@ export const Footer = () => {
       <Container>
         <div className="h-full flex items-center justify-center">
           <p className="text-xs text-gray-800 dark:text-gray-400">
-            {new Date().getFullYear()} made by acoji.
+            {new Date().getFullYear()} made by acoji. ❤️
           </p>
         </div>
       </Container>
