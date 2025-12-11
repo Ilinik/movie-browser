@@ -9,10 +9,12 @@ export const InfoRow = ({
 }) => {
   return (
     <li className="flex">
-      <span className="w-40 text-gray-700 dark:text-gray-400 flex-1">
+      <span className="w-40 text-gray-700 dark:text-gray-400 flex-1 text-xs md:text-md xl:text-lg">
         {label}
       </span>
-      <span className="font-semibold">{value}</span>
+      <span className="font-semibold text-xs md:text-md xl:text-lg">
+        {value}
+      </span>
     </li>
   );
 };

@@ -14,7 +14,7 @@ export const MovieArtwork = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
         {images.backdrops.slice(0, 10).map((image) => (
           <img
             className="object-cover rounded-md cursor-pointer hover:scale-102 transition duration-250"
@@ -33,10 +33,10 @@ export const MovieArtwork = () => {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative overflow-hidden rounded-lg"
+            className="relative rounded-lg max-w-[90vw] max-h-[90vh] overflow-hidden"
           >
             <img
-              className="max-w-[80vw] w-full h-auto max-h-[70vh] object-cover relative"
+              className="w-full h-full object-contain"
               src={`${import.meta.env.VITE_API_IMAGE}/original${selectedImage.file_path}`}
               alt={selectedImage.file_path}
             />

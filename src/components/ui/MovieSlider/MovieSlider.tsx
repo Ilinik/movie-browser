@@ -60,20 +60,14 @@ export const MovieSlider = ({
         ref={prevRef}
         className="absolute left-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
       >
-        <ChevronLeft
-          size={70}
-          className="stroke-gray-300 hover:stroke-white hover:scale-115 active:scale-130 duration-300 transition"
-        />
+        <ChevronLeft className="stroke-gray-300 hover:stroke-white hover:scale-115 active:scale-130 duration-300 transition w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" />
       </button>
 
       <button
         ref={nextRef}
         className="absolute right-0 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
       >
-        <ChevronRight
-          size={70}
-          className="stroke-gray-300 hover:stroke-white hover:scale-115 active:scale-130 duration-300 transition"
-        />
+        <ChevronRight className="stroke-gray-300 hover:stroke-white hover:scale-115 active:scale-130 duration-300 transition w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" />
       </button>
     </div>
   );

@@ -19,7 +19,7 @@ export const ItemCard = ({ movie }: { movie: TMovie | TSeries }) => {
         alt={'title' in movie ? movie.title : movie.name}
         className="rounded-xl border-2 border-transparent group-hover:border-slate-900 dark:group-hover:border-white transition duration-250"
       />
-      <div className="text-center">
+      <div className="text-center text-sm md:text-md">
         {'title' in movie ? movie.title : movie.name}
       </div>
     </div>

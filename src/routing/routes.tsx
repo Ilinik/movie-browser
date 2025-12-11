@@ -24,6 +24,8 @@ export const router = createBrowserRouter([
         ],
       },
       { path: dynamicLinks.seriesDetails, Component: SeriesDetails },
+
+      { path: '*', Component: HomePage },
     ],
   },
 ]);

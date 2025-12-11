@@ -23,16 +23,18 @@ export const MovieDetails = () => {
 
   return (
     <section className="section">
-      <div className="flex gap-8">
+      <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8">
         <img
-          className="object-cover rounded-lg max-w-[220px] w-full h-auto"
+          className="object-cover rounded-lg max-w-[200px] lg:max-w-[220px] w-full h-auto"
           src={`${import.meta.env.VITE_API_IMAGE}/original${movieDetails.poster_path}`}
           alt={movieDetails.title}
         />
         <div className="pt-6 pb-6 flex flex-col gap-5">
           <div className="flex flex-col gap-3 max-w-220 w-full">
-            <h2 className="font-bold text-3xl">{movieDetails.title}</h2>
-            <p className="text-md text-gray-600 dark:text-gray-300">
+            <h2 className="font-bold text-xl xl:text-3xl">
+              {movieDetails.title}
+            </h2>
+            <p className="text-sm lg:text-md text-gray-600 dark:text-gray-300">
               {movieDetails.overview}
             </p>
           </div>
@@ -44,7 +46,7 @@ export const MovieDetails = () => {
             {movieDetails.status === 'Released' ? (
               <p
                 className="px-4 py-2 bg-green-500 rounded-full font-medium self-start 
-              transition-all duration-300 hover:scale-105 hover:shadow-lg text-white"
+              transition-all duration-300 hover:scale-105 hover:shadow-lg text-white text-sm xl:text-md"
               >
                 {movieDetails.status}
               </p>
