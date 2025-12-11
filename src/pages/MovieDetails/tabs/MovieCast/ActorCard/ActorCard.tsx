@@ -10,7 +10,7 @@ export const ActorCard = ({ actor }: ActorCardProps) => {
   return (
     <div className="relative w-[200px] h-[300px] overflow-hidden rounded-t-md">
       <img
-        src={`${import.meta.env.VITE_API_IMAGE}/w300${actor.profile_path}`}
+        src={`${import.meta.env.VITE_API_IMAGE}/original${actor.profile_path}`}
         alt={actor.name}
         className="w-full h-full object-cover"
       />

@@ -15,7 +15,7 @@ export const ItemCard = ({ movie }: { movie: TMovie | TSeries }) => {
       }
     >
       <img
-        src={`${import.meta.env.VITE_API_IMAGE}/w500${movie.poster_path}`}
+        src={`${import.meta.env.VITE_API_IMAGE}/original${movie.poster_path}`}
         alt={'title' in movie ? movie.title : movie.name}
         className="rounded-xl border-2 border-transparent group-hover:border-slate-900 dark:group-hover:border-white transition duration-250"
       />

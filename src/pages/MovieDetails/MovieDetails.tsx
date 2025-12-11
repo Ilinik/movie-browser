@@ -26,7 +26,7 @@ export const MovieDetails = () => {
       <div className="flex gap-8">
         <img
           className="object-cover rounded-lg max-w-[220px] w-full h-auto"
-          src={`${import.meta.env.VITE_API_IMAGE}/w300${movieDetails.poster_path}`}
+          src={`${import.meta.env.VITE_API_IMAGE}/original${movieDetails.poster_path}`}
           alt={movieDetails.title}
         />
         <div className="pt-6 pb-6 flex flex-col gap-5">
@@ -41,12 +41,21 @@ export const MovieDetails = () => {
             before:content-[''] before:absolute before:left-0 before:top-0 
             before:w-full before:h-px before:bg-gray-600 before:opacity-30 py-5"
           >
-            <p
-              className="px-4 py-2 bg-green-500 rounded-full font-medium self-start 
+            {movieDetails.status === 'Released' ? (
+              <p
+                className="px-4 py-2 bg-green-500 rounded-full font-medium self-start 
               transition-all duration-300 hover:scale-105 hover:shadow-lg text-white"
-            >
-              {movieDetails.status}
-            </p>
+              >
+                {movieDetails.status}
+              </p>
+            ) : (
+              <p
+                className="px-4 py-2 bg-red-500 rounded-full font-medium self-start 
+              transition-all duration-300 hover:scale-105 hover:shadow-lg text-white"
+              >
+                {movieDetails.status}
+              </p>
+            )}
 
             <div className="flex flex-col gap-2">
               <p className="font-bold">Tagline</p>
