@@ -8,6 +8,9 @@ import { SeriesDetails } from '../pages/SeriesDetails/SeriesDetails';
 import { MovieGeneral } from '../pages/MovieDetails/tabs/MovieGeneral/MovieGeneral';
 import { MovieCast } from '../pages/MovieDetails/tabs/MovieCast/MovieCast';
 import { MovieArtwork } from '../pages/MovieDetails/tabs/MovieArtwork/MovieArtwork';
+import { SeriesGeneral } from '../pages/SeriesDetails/tabs/SeriesGeneral/SeriesGeneral';
+import { SeriesCast } from '../pages/SeriesDetails/tabs/SeriesCast/SeriesCast';
+import { SeriesArtwork } from '../pages/SeriesDetails/tabs/SeriesArtwork/SeriesArtwork';
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +26,15 @@ export const router = createBrowserRouter([
           { path: 'artwork', Component: MovieArtwork },
         ],
       },
-      { path: dynamicLinks.seriesDetails, Component: SeriesDetails },
+      {
+        path: dynamicLinks.seriesDetails,
+        Component: SeriesDetails,
+        children: [
+          { index: true, Component: SeriesGeneral },
+          { path: 'cast', Component: SeriesCast },
+          { path: 'artwork', Component: SeriesArtwork },
+        ],
+      },
 
       { path: '*', Component: HomePage },
     ],
