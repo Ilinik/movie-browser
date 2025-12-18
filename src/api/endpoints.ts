@@ -8,5 +8,8 @@ export const ENDPOINTS = {
 
   tvSeries: {
     popular: '/tv/popular',
+    getDetailsById: (id: number) => `/tv/${id}`,
+    getCredits: (id: number) => `/tv/${id}/credits`,
+    getImages: (id: number) => `/tv/${id}/images`,
   },
 };
