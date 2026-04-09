@@ -12,4 +12,9 @@ export const ENDPOINTS = {
     getCredits: (id: number) => `/tv/${id}/credits`,
     getImages: (id: number) => `/tv/${id}/images`,
   },
+
+  search: {
+    multi: (query: string) =>
+      `/search/multi?query=${encodeURIComponent(query)}`,
+  },
 };
