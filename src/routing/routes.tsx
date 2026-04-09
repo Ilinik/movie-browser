@@ -11,12 +11,14 @@ import { MovieArtwork } from '../pages/MovieDetails/tabs/MovieArtwork/MovieArtwo
 import { SeriesGeneral } from '../pages/SeriesDetails/tabs/SeriesGeneral/SeriesGeneral';
 import { SeriesCast } from '../pages/SeriesDetails/tabs/SeriesCast/SeriesCast';
 import { SeriesArtwork } from '../pages/SeriesDetails/tabs/SeriesArtwork/SeriesArtwork';
+import { SearchResultPage } from '../pages/SearchResultPage/SearchResultPage';
 
 export const router = createBrowserRouter([
   {
     Component: App,
     children: [
       { path: staticLinks.main, Component: HomePage },
+      { path: staticLinks.search, Component: SearchResultPage },
       {
         path: dynamicLinks.movieDetails,
         Component: MovieDetails,
