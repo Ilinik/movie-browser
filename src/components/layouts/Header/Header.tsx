@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { Container } from '../Container/Container';
 import { useNavigate } from 'react-router';
+import { SearchBar } from '../../ui/SearchBar/SearchBar';
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -11,13 +12,14 @@ export const Header = () => {
       )}
     >
       <Container className="h-full">
-        <div className="flex items-center h-full">
+        <div className="flex items-center justify-between h-full">
           <div
-            className="font-bold text-2xl cursor-pointer"
+            className="font-bold sm:text-xs lg:text-2xl cursor-pointer"
             onClick={() => navigate('/')}
           >
             Movie Browser
           </div>
+          <SearchBar />
         </div>
       </Container>
     </header>

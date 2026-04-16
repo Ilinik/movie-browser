@@ -3,6 +3,8 @@ import { Tabs } from '../../components/ui/Tabs/Tabs';
 import { useSeriesDetails } from '../../hooks/series/useSeriesDetails';
 import type { TTab } from '../../types/entities/TTab';
 
+const PLACEHOLDER_SVG = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='300' viewBox='0 0 200 300'%3E%3Crect width='200' height='300' fill='%23374151'/%3E%3Ctext x='50%25' y='45%25' dominant-baseline='middle' text-anchor='middle' font-size='48' fill='%236b7280'%3E%F0%9F%8E%AC%3C/text%3E%3Ctext x='50%25' y='65%25' dominant-baseline='middle' text-anchor='middle' font-size='14' fill='%236b7280'%3EPoster not found%3C/text%3E%3C/svg%3E`;
+
 export const SeriesDetails = () => {
   const { id } = useParams();
 
@@ -11,6 +13,10 @@ export const SeriesDetails = () => {
     isLoading,
     isError,
   } = useSeriesDetails(Number(id));
+
+  const src = seriesDetails?.poster_path
+    ? `${import.meta.env.VITE_API_IMAGE}/original${seriesDetails.poster_path}`
+    : PLACEHOLDER_SVG;
 
   const tabs: TTab[] = [
     { to: '', label: 'General' },
@@ -25,7 +31,7 @@ export const SeriesDetails = () => {
       <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8">
         <img
           className="object-cover rounded-lg max-w-[200px] lg:max-w-[220px] w-full h-auto"
-          src={`${import.meta.env.VITE_API_IMAGE}/original${seriesDetails.poster_path}`}
+          src={src}
           alt={seriesDetails.name}
         />
         <div className="pt-6 pb-6 flex flex-col gap-5">
