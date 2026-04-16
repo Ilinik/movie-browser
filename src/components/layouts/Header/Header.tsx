@@ -14,7 +14,7 @@ export const Header = () => {
       <Container className="h-full">
         <div className="flex items-center justify-between h-full">
           <div
-            className="font-bold text-2xl cursor-pointer"
+            className="font-bold sm:text-xs lg:text-2xl cursor-pointer"
             onClick={() => navigate('/')}
           >
             Movie Browser
