@@ -7,7 +7,9 @@ type TContainerProps = PropsWithChildren & {
 
 export const Container = ({ children, className }: TContainerProps) => {
   return (
-    <div className={clsx('max-w-[1400px] mx-auto px-5', className)}>
+    <div
+      className={clsx('max-w-[1400px] mx-auto px-3 lg:px-5 xl:px-6', className)}
+    >
       {children}
     </div>
   );

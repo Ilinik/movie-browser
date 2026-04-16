@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Movie Browser
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive web application for browsing popular movies and TV series, built with React and powered by The Movie Database (TMDB) API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse popular movies and TV series on the home page
+- Detailed pages for each movie and series with tabbed navigation:
+  - **General** — overview, release date, runtime, genres, ratings
+  - **Cast** — actor cards with profile photos and character names
+  - **Artwork** — image gallery (posters, backdrops)
+- Responsive layout with a touch-friendly Swiper slider
+- Client-side routing with React Router
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Category      | Libraries                            |
+| ------------- | ------------------------------------ |
+| Framework     | React 19                             |
+| Language      | TypeScript                           |
+| Routing       | React Router 7                       |
+| Data Fetching | TanStack Query (React Query) + Axios |
+| Styling       | Tailwind CSS 4                       |
+| Slider        | Swiper                               |
+| Icons         | Lucide React                         |
+| Build         | Vite (rolldown-vite)                 |
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18+
+- A free [TMDB API](https://www.themoviedb.org/settings/api) key and read access token
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/your-username/movie-browser.git
+cd movie-browser
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Create a `.env` file in the project root:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_API_BASE_URL=https://api.themoviedb.org/3
+VITE_API_TOKEN=your_tmdb_read_access_token
 ```
+
+### Running the App
+
+```bash
+# Development server
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Project Structure
+
+```
+src/
+├── api/            # Axios client and API endpoint definitions
+├── components/
+│   ├── layouts/    # Header, Footer, Container, PageWrapper
+│   └── ui/         # ItemCard, MovieSlider, Tabs
+├── config/         # Static and dynamic route paths
+├── hooks/
+│   ├── movies/     # usePopularMovies, useMovieDetails, useMovieCredits, useMovieImages
+│   └── series/     # usePopularSeries, useSeriesDetails, useSeriesCredits, useSeriesImages
+├── pages/
+│   ├── HomePage/
+│   ├── MovieDetails/
+│   └── SeriesDetails/
+├── services/       # MovieService, SeriesService (API call wrappers)
+├── types/          # TypeScript types for entities and API responses
+└── routing/        # React Router configuration
+```
+
+## License
+
+MIT
